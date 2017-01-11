@@ -1,13 +1,9 @@
-# material-timepicker
-
-[![Build Status](https://strider.nickc.io/hownowbrowncow/material-timepicker/badge?branch=master)](https://strider.nickc.io/hownowbrowncow/material-timepicker) [![Dependency Status](https://david-dm.org/hownowbrowncow/material-timepicker.svg)](https://david-dm.org/hownowbrowncow/material-timepicker)
+# material-pickers-time
 
 ## Install
 
-Available on NPM only   
-
 ```
-npm install material-timepicker
+npm install material-pickers-time
 ```
 
 ## Build
@@ -24,13 +20,11 @@ Requires the use of the [gulp task runner](https://github.com/gulpjs/gulp) and b
 
 Currently, the Material Design Lite project doesn't have any picker features implemented. There are a few other OS material picker libraries but they are either not actively maintained,  or require heavy dependencies.
 
-In need of a timepicker for a current project I made this library. Built with plain JavaScript and no dependencies. Written in ES6 and SASS.
+In need of a timepicker for a current project I made this library. Built with vanilla JavaScript and no dependencies. Written in ES6 and SASS.
 
 The library currently supports both 12 and 24 time formats.
 
-To check out live examples and view the test runner check out http://hownowbrowncow.github.io/material-timepicker/
-
-This is my first time writing a DOM library in vanilla JS so feedback is appreciated!
+To check out live examples and view the test runner check out https://timepicker.nickc.io/
 
 ## Options
 

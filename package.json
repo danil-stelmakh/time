@@ -1,7 +1,7 @@
 {
-  "name": "material-timepicker",
-  "version": "0.1.2",
-  "description": "material design timepicker",
+  "name": "material-pickers-time",
+  "version": "0.2.0",
+  "description": "Material design time picker",
   "main": "./dist/js/timepicker.js",
   "scripts": {
     "test": "gulp test:js",
@@ -10,15 +10,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hownowbrowncow/material-timepicker.git"
+    "url": "git+https://github.com/material-pickers/time.git"
   },
   "keywords": [
+    "material-picker",
+    "material-time",
+    "material-timepicker",
+    "material-time-picker",
+    "time",
     "timepicker",
-    "material-timepicker"
+    "time-picker"
   ],
   "author": "Nick C",
   "license": "MIT",
-  "homepage": "https://github.com/hownowbrowncow/material-timepicker#readme",
+  "homepage": "https://github.com/material-pickers/time#readme",
   "devDependencies": {
     "babel": "^6.5.2",
     "babel-cli": "^6.18.0",
