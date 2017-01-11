@@ -4,7 +4,7 @@ import del from 'del';
 import * as tasks from 'gulp-modern-tasks';
 
 const sassOpts = {
-    pathGlob: './src/sass/main.scss',
+    source: './src/sass/main.scss',
     outPath: './build/css',
     watch: './src/sass/**/*.scss',
 };
