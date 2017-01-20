@@ -1,3 +1,8 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
 /**
  * Object.assign polyfill
  *
@@ -5,11 +10,6 @@
  * @param {...object} sources  Source object to merge properties from
  * @return {object} Target object with merged properties
  */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', {
-    value: true
-});
 function assign(target) {
     if (target === 'undefined' || target === null) {
         throw new TypeError('Cannot convert first argument to object');
@@ -17,12 +17,8 @@ function assign(target) {
 
     var to = Object(target);
 
-    for (var _len = arguments.length, sources = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        sources[_key - 1] = arguments[_key];
-    }
-
-    for (var inc = 0; inc < sources.length; inc += 1) {
-        var nextSource = sources[inc];
+    for (var inc = 0; inc < (arguments.length <= 1 ? 0 : arguments.length - 1); inc += 1) {
+        var nextSource = arguments.length <= inc + 1 ? undefined : arguments[inc + 1];
 
         if (nextSource === 'undefined' || nextSource === null) {
             continue;
@@ -45,5 +41,4 @@ function assign(target) {
     return to;
 }
 
-exports['default'] = assign;
-module.exports = exports['default'];
+exports.default = assign;
