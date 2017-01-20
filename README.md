@@ -24,7 +24,7 @@ In need of a timepicker for a current project I made this library. Built with va
 
 The library currently supports both 12 and 24 time formats.
 
-To check out live examples and view the test runner check out https://timepicker.nickc.io/
+To check out live examples and view the test runner check out https://pickers.nickc.io/time.html
 
 ## Options
 
