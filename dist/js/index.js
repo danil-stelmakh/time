@@ -10,5 +10,5 @@ window.onload = function () {
     var picker = new _timepicker2.default();
 
     picker.bindInput('#bind-one');
-    picker.bindInput('#bind-two', { timeFormat: 'military' });
+    picker.bindInput('#bind-two', { timeFormat: 'military', autoNext: true });
 };

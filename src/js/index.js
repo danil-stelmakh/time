@@ -4,5 +4,5 @@ window.onload = () => {
     const picker = new TimePicker();
 
     picker.bindInput('#bind-one');
-    picker.bindInput('#bind-two', {timeFormat: 'military'});
+    picker.bindInput('#bind-two', {timeFormat: 'military', autoNext: true});
 };

@@ -32,6 +32,7 @@ Current only one option is implemented to change between 12 and 24 hour time. Th
 
 `{`  
 `timeFormat`: `standard` or `military` by default it will be standard  
+`autoNext`: `true` for atomaticly transition to next step (without click to "OK" button)
 `}`  
 
 

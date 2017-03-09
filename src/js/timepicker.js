@@ -123,7 +123,13 @@ class TimePicker extends Events {
             this.cachedEls.buttonCancel.addEventListener('click', event => this.hideEvent(event));
 
             // next/prev step actions
-            this.cachedEls.buttonOk.addEventListener('click', () => this.changeStep(this.currentStep + 1));
+            this.cachedEls.buttonOk.addEventListener('click', () => {
+                if (this.inputEl && this.inputEl.mtpOptions.autoNext) {
+                    this.changeStep(2);
+                } else {
+                    this.changeStep(this.currentStep + 1);
+                }
+            });
             this.cachedEls.buttonBack.addEventListener('click', () => this.changeStep(0));
 
             // meridiem select events
@@ -228,6 +234,13 @@ class TimePicker extends Events {
      * @return {void}
      */
     resetState() {
+        let autoNext = false;
+
+        if (this.inputEl.mtpOptions) {
+            autoNext = this.inputEl.mtpOptions.autoNext;
+            this.inputEl.mtpOptions.autoNext = false;
+        }
+
         this.currentStep = 0;
         this.toggleHoursVisible(true, this.isMilitaryFormat());
         this.toggleMinutesVisible();
@@ -235,6 +248,10 @@ class TimePicker extends Events {
         this.cachedEls.clockMinutesLi[0].dispatchEvent(new Event('click'));
         this.cachedEls.clockMilitaryHoursLi[0].dispatchEvent(new Event('click'));
         this.cachedEls.meridiemSpans[0].dispatchEvent(new Event('click'));
+
+        if (this.inputEl.mtpOptions) {
+            this.inputEl.mtpOptions.autoNext = autoNext;
+        }
     }
 
     /**
@@ -417,6 +434,10 @@ class TimePicker extends Events {
         this.setDisplayTime(newActive.innerHTML, 0);
         this.rotateHand(activeIndex);
         this.trigger('hourSelected');
+
+        if (this.inputEl && this.inputEl.mtpOptions.autoNext) {
+            this.changeStep(this.currentStep + 1);
+        }
     }
 
     /**
@@ -440,6 +461,10 @@ class TimePicker extends Events {
         this.setDisplayTime(displayTime, 1);
         this.rotateHand(activeIndex, 6);
         this.trigger('minuteSelected');
+
+        if (this.inputEl && this.inputEl.mtpOptions.autoNext) {
+            this.changeStep(this.currentStep + 1);
+        }
     }
 
     /**

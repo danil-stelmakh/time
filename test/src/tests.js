@@ -478,6 +478,7 @@ describe('TimePicker Unit Tests', function() {
             stopPropagationSpy = sinon.spy(event, 'stopPropagation');
         });
 
+
         afterEach(function() {
             hideSpy.restore();
             stopPropagationSpy.restore();

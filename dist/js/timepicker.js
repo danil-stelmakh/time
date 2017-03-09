@@ -182,7 +182,11 @@ var TimePicker = function (_Events) {
 
                 // next/prev step actions
                 this.cachedEls.buttonOk.addEventListener('click', function () {
-                    return _this3.changeStep(_this3.currentStep + 1);
+                    if (_this3.inputEl && _this3.inputEl.mtpOptions.autoNext) {
+                        _this3.changeStep(2);
+                    } else {
+                        _this3.changeStep(_this3.currentStep + 1);
+                    }
                 });
                 this.cachedEls.buttonBack.addEventListener('click', function () {
                     return _this3.changeStep(0);
@@ -309,6 +313,13 @@ var TimePicker = function (_Events) {
     }, {
         key: 'resetState',
         value: function resetState() {
+            var autoNext = false;
+
+            if (this.inputEl.mtpOptions) {
+                autoNext = this.inputEl.mtpOptions.autoNext;
+                this.inputEl.mtpOptions.autoNext = false;
+            }
+
             this.currentStep = 0;
             this.toggleHoursVisible(true, this.isMilitaryFormat());
             this.toggleMinutesVisible();
@@ -316,6 +327,10 @@ var TimePicker = function (_Events) {
             this.cachedEls.clockMinutesLi[0].dispatchEvent(new Event('click'));
             this.cachedEls.clockMilitaryHoursLi[0].dispatchEvent(new Event('click'));
             this.cachedEls.meridiemSpans[0].dispatchEvent(new Event('click'));
+
+            if (this.inputEl.mtpOptions) {
+                this.inputEl.mtpOptions.autoNext = autoNext;
+            }
         }
 
         /**
@@ -534,6 +549,10 @@ var TimePicker = function (_Events) {
             this.setDisplayTime(newActive.innerHTML, 0);
             this.rotateHand(activeIndex);
             this.trigger('hourSelected');
+
+            if (this.inputEl && this.inputEl.mtpOptions.autoNext) {
+                this.changeStep(this.currentStep + 1);
+            }
         }
 
         /**
@@ -560,6 +579,10 @@ var TimePicker = function (_Events) {
             this.setDisplayTime(displayTime, 1);
             this.rotateHand(activeIndex, 6);
             this.trigger('minuteSelected');
+
+            if (this.inputEl && this.inputEl.mtpOptions.autoNext) {
+                this.changeStep(this.currentStep + 1);
+            }
         }
 
         /**
